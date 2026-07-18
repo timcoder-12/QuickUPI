@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>QuickUPI | Merchant Link Generator</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+    <div class="app-container">
+        <header>
+            <h1>QuickUPI</h1>
+            <p class="subtitle">Frictionless MSME Payments</p>
+        </header>
+
+        <div class="merchant-setup">
+            <div class="input-group">
+                <label for="upiId">Your Merchant UPI ID</label>
+                <input type="text" id="upiId" placeholder="e.g. yourname@oksbi" onchange="saveSettings()">
+            </div>
+            <div class="input-group">
+                <label for="businessName">Business Name</label>
+                <input type="text" id="businessName" placeholder="e.g. QuickUI Design" onchange="saveSettings()">
+            </div>
+        </div>
+
+        <div class="generator-form">
+            <div class="input-group">
+                <label for="customerName">Customer Name</label>
+                <input type="text" id="customerName" placeholder="e.g. Rahul Sharma">
+            </div>
+
+            <div class="input-group">
+                <label for="itemDesc">Item / Service Description</label>
+                <input type="text" id="itemDesc" placeholder="e.g. Logo Design">
+            </div>
+
+            <div class="input-group">
+                <label for="amount">Amount (₹)</label>
+                <div class="amount-wrapper">
+                    <span>₹</span>
+                    <input type="number" id="amount" placeholder="0.00" inputmode="decimal">
+                </div>
+            </div>
+
+            <button class="primary" id="generate-btn" onclick="generateLink()">Generate Payment Link</button>
+            <button id="wa-share-btn" onclick="shareToWhatsApp()">Share via WhatsApp</button>
+        </div>
+
+        <section class="history-section">
+            <h2>Recent Links Generated</h2>
+            <ul id="history-list">
+                </ul>
+        </section>
+    </div>
+
+    <div class="ad-banner">
+        AdSense 320x50
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
