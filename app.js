@@ -86,10 +86,15 @@ function generateLink() {
     }
 
     // 3. Generate URIs
+    const transactionRef = "TXN" + Date.now(); // Unique transaction ID
+    const note = encodeURIComponent("Payment to " + businessName); // Professional note
+
     const upiLink = "upi://pay?pa=" + encodeURIComponent(upiId) 
                   + "&pn=" + encodeURIComponent(businessName) 
                   + "&am=" + encodeURIComponent(amount) 
-                  + "&cu=INR";
+                  + "&cu=INR"
+                  + "&tn=" + note
+                  + "&tr=" + transactionRef;
 
     const waMessage = "Hello " + customerName + "! Here is your payment link for " + item + " (₹" + amount + "). Tap here to pay instantly: \n\n" + upiLink;
     currentWaUrl = "https://wa.me/?text=" + encodeURIComponent(waMessage);
